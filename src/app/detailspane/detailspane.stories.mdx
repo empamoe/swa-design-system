@@ -1,0 +1,132 @@
+import { Meta, Story, Canvas, Preview } from '@storybook/addon-docs/blocks';
+import { DetailspaneComponent } from './detailspane.component';
+import DetailsPaneIntro from '../../stories/assets/detailspane/detailspane-intro.png';
+import DetailsPaneAnatomy from '../../stories/assets/detailspane/detailspane-anatomy.png';
+import DetailsPanePlacement from '../../stories/assets/detailspane/detailspane-placement.png';
+import DetailsPanePlacement2 from '../../stories/assets/detailspane/detailspane-placement2.png';
+
+<style>{`
+
+  .tabs a {
+    display: inline-block;
+    margin-right: 1rem;
+  }
+
+  .tabs a:last-child {
+    margin-right: 0;
+  }
+
+`}</style>
+
+<Meta title='Components/DetailsPane/Documentation'
+/>
+
+# Detail Pane
+
+## Overview
+
+<ol class="tabs">
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#principles">Principles</a></li>
+<li><a href="#when-to-use">When to use</a></li>
+<li><a href="#anatomy">Anatomy</a></li>
+<li><a href="#placement">Placement</a></li>
+<li><a href="#measurements">Measurements</a></li>
+<li><a href="#elevation">Elevation</a></li>
+<li><a href="#variations">Variations</a></li>
+<li><a href="#behavior-and-interaction">Behavior and Interaction</a></li>
+<li><a href="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
+
+</ol>
+
+
+
+## Introduction
+
+The details pane is a supplement to the main content area that is used to provide users a way to view more detailed information and interact with an entity while keeping the main view in the content area.
+The details pane appears when clicking on one entity in an overview of many entities (e.g. on a device in a table).
+
+<img src={DetailsPaneIntro} alt="DetailsPaneIntro" />
+
+## Principles
+
+**Preview**
+The details pane summarizes the most important content of the selected element.
+
+**No editing**
+Editing of data (e.g. changing device name) is not allowed inside a details pane. In contrast the single view usually shows all data in editing mode.
+
+**Use actions sparingly**
+Some actions concerning the entity (e.g. deactivating a strategy) may be offered inside the details pane. Since it only contains the most important content, actions should also be chosen considerately.
+
+
+## When to Use
+Generally a details pane is always available on pages where the content only consists of a listing of many entities.
+
+**Use if**
+- you want to show additional information for entities in the main content area.
+
+**Do not use if**
+- the respective entity is not in the main content area.
+- to show additional information pertaining to the  main content area as a whole.
+
+## Anatomy
+
+<img src={DetailsPaneAnatomy} alt="DetailsPaneAnatomy" />
+
+1. Title
+2. Hide Button
+3. Details Box Header
+4. Details Box Content
+
+## Placement
+
+<img src={DetailsPanePlacement} alt="DetailsPanePlacement" />
+
+Details panes are anchored to the right edge of the screen (3). The details pane is divided in 5 columns. The content of the details boxes aligns to the grid.
+The top of the title always aligns to the top of the content.
+
+<img src={DetailsPanePlacement2} alt="DetailsPanePlacement2" />
+
+### Mobile (xs)
+There is no sidebar in tables. You can only access a preview on the map.
+
+## Measurements
+
+The width is calculated through the viewport size. Details panes span the height of the content area.
+
+
+## Elevation
+The details pane is placed on the background layer.
+(Grafik zur Elevation allgemein folgt & wird bei Elevation untergebracht.)
+
+## Variations
+
+A user may select multiple items in the content area by using Ctrl + click / cmd + click. These are marked active and show up in the details pane as a list as shown here. Another way to select multiple items is when a user clicks an aggregated icon on the map. Users can then batch interact with these multiple items (e.g. creating a group; deactivating all of them)
+
+When multiple devices have been selected there should be actions available that are often needed by users.
+
+
+## Behavior and Interaction
+
+### Interactions
+
+**Opening**
+On any content area that displays a collection of entities the details pane appears once I click on one of the entities. Selecting multiple entities will change the view and show a grouped list of all objects.
+
+**Closing**
+The details pane may be closed by clicking the close icon freeing space toward the content area.
+A closed pane can be viewed by clicking again on the entity or by using the keyboard shortcut   d.
+
+**Collapsing of Detail Boxes**
+Individual detail boxes may be collapsed (hidden) or expanded by clicking the detail box header or the collapse/expand icon. By default all sections are expanded.
+
+**Scrolling**
+Details panes can be vertically scrolled independent of the rest of the UI.
+They cannot be horizontally scrolled.
+
+## Keyboard Shortcuts
+
+| Action | Shortcut |
+|------- | -------- |
+| Show/Hide details pane (and Set Focus to details pane) | d |
