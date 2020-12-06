@@ -3,7 +3,7 @@ import { moduleMetadata } from '@storybook/angular';
 import { Meta, Story } from '@storybook/angular/types-6-0';
 import { DetailspaneComponent } from './detailspane.component';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
-import { config, withDesign } from 'storybook-addon-designs'
+import { config, withDesign } from 'storybook-addon-designs';
 
 
 // This exports the Stories group for this component
@@ -36,6 +36,8 @@ export const Default = Template.bind({});
 
 Default.args = {
   title: 'DetailsPane',
+  id: 1,
+  closed: false
 };
 
 Default.parameters = {

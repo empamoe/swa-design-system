@@ -1,16 +1,16 @@
 <div class="content">
-<aside class="detailspane" role="complementary" aria-labelledby="detailspane-1" data-allow-multiple>
-  <div class="detailspane-header">
-    <h2 id="detailspane-1" class="detailspane-title">{{title}}</h2>
-    <button class="detailspane-close" aria-label="Close" aria-describedby="descriptionClose">close</button>
-    <span id="descriptionClose" class="sr-only">Closing this detail pane will return you back to the main page</span>
+<aside [ngClass]="classes" role="complementary" [attr.aria-labelledby]="'detailspane' + id" data-allow-multiple>
+  <div class="detailspane__header">
+    <h2 id="{{ 'detailspane' + id }}" class="detailspane__title">{{title}}</h2>
+    <button class="detailspane__close" aria-label="Close" aria-describedby="detailspane__close--description">close</button>
+    <span id="detailspane__close--description" class="sr-only">Closing this detail pane will return you back to the main content</span>
   </div>
-  <div class="detailspane-content">
-    <h3 class="detailsbox-headerwrap">
+  <div class="detailspane__content">
+    <h3 class="detailsbox__headerwrap">
     <button id="detailsbox-1id"
-        class="detailsbox-header"
+        class="detailsbox__header"
         aria-expanded="true"
-        aria-controls="detailsbox-content-1">
+        aria-controls="detailsbox__content-1">
         <span class="detailsbox-title"> I am a the title </span>
         <span class="detailsbox-icon" aria-hidden="true" focusable="false">
             <svg class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" xml:space="preserve" viewBox="0 0 8 5">
@@ -22,8 +22,8 @@
         </span>
   </button>
   </h3>
-  <div id="detailsbox-content-1"
-     class="detailsbox-content"
+  <div id="detailsbox__content-1"
+     class="detailsbox__content"
      role="region"
      aria-labelledby="detailsbox-1id"
      >
@@ -33,11 +33,11 @@
       </div>
   </div>
     <!-- tab 2 -->
-    <h3 class="detailsbox-headerwrap">
+    <h3 class="detailsbox__headerwrap">
     <button id="detailsbox-2id"
-        class="detailsbox-header"
+        class="detailsbox__header"
         aria-expanded="true"
-        aria-controls="detailsbox-content-2">
+        aria-controls="detailsbox__content-2">
         <span class="detailsbox-title"> I am a the title 2</span>
         <span class="detailsbox-icon" aria-hidden="true" focusable="false">
             <svg class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" xml:space="preserve" viewBox="0 0 8 5">
@@ -49,8 +49,8 @@
         </span>
   </button>
   </h3>
-  <div id="detailsbox-content-2"
-     class="detailsbox-content"
+  <div id="detailsbox__content-2"
+     class="detailsbox__content"
      role="region"
      aria-labelledby="detailsbox-2id"
      >

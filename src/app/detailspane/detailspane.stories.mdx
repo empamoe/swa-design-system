@@ -4,6 +4,10 @@ import DetailsPaneIntro from '../../stories/assets/detailspane/detailspane-intro
 import DetailsPaneAnatomy from '../../stories/assets/detailspane/detailspane-anatomy.png';
 import DetailsPanePlacement from '../../stories/assets/detailspane/detailspane-placement.png';
 import DetailsPanePlacement2 from '../../stories/assets/detailspane/detailspane-placement2.png';
+import DetailsPaneMobile from '../../stories/assets/detailspane/detailspane-mobile.png';
+import DetailsPaneMultiselection from '../../stories/assets/detailspane/detailspane-multiselection.png';
+import DetailsPaneMeasurements from '../../stories/assets/detailspane/detailspane-measurements.png';
+
 
 <style>{`
 
@@ -16,12 +20,20 @@ import DetailsPanePlacement2 from '../../stories/assets/detailspane/detailspane-
     margin-right: 0;
   }
 
+  img {
+    width: 100%;
+    height: auto;
+    max-width: 34rem !important;
+    margin: 2rem auto;
+    display: block;
+  }
+
 `}</style>
 
 <Meta title='Components/DetailsPane/Documentation'
 />
 
-# Detail Pane
+# Details Pane
 
 ## Overview
 
@@ -33,6 +45,7 @@ import DetailsPanePlacement2 from '../../stories/assets/detailspane/detailspane-
 <li><a href="#placement">Placement</a></li>
 <li><a href="#measurements">Measurements</a></li>
 <li><a href="#elevation">Elevation</a></li>
+<li><a href="#multiselection">Multiselection</a></li>
 <li><a href="#variations">Variations</a></li>
 <li><a href="#behavior-and-interaction">Behavior and Interaction</a></li>
 <li><a href="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
@@ -91,14 +104,16 @@ The top of the title always aligns to the top of the content.
 ### Mobile (xs)
 There is no sidebar in tables. You can only access a preview on the map.
 
+<img src={DetailsPaneMobile} alt="DetailsPaneMobile" />
+
 ## Measurements
 
 The width is calculated through the viewport size. Details panes span the height of the content area.
 
+<img src={DetailsPaneMeasurements} alt="DetailsPaneMeasurements" />
 
 ## Elevation
 The details pane is placed on the background layer.
-(Grafik zur Elevation allgemein folgt & wird bei Elevation untergebracht.)
 
 ## Variations
 
@@ -106,6 +121,9 @@ A user may select multiple items in the content area by using Ctrl + click / cmd
 
 When multiple devices have been selected there should be actions available that are often needed by users.
 
+## Multiselection
+
+<img src={DetailsPaneMultiselection} alt="DetailsPaneMultiselection" />
 
 ## Behavior and Interaction
 

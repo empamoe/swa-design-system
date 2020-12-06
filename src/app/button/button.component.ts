@@ -3,7 +3,7 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 @Component({
   selector: 'app-button',
   templateUrl: './button.component.html',
-  styleUrls: ['./button.component.scss']
+  styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent implements OnInit {
 
@@ -17,7 +17,7 @@ export class ButtonComponent implements OnInit {
    * What background color to use
    */
   //@Input()
-  //backgroundColor?: string;
+  backgroundColor?: string;
 
   /**
    * How large should the button be?

@@ -17,7 +17,8 @@ $text: #485258;
 
 button {
   margin: 0;
-  color: $text;
+  //this is just es an example for accessibility violations
+  color: lighten($text,50%);
 }
 
 .sr-only {
@@ -68,27 +69,37 @@ button {
   margin: 0 auto;
   width: 25rem;
   font-size: 0.8125rem;
+  opacity: 1;
+  transform: translateX(0%);
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+
+  &--closed {
+    transform: translateX(100%);
+    opacity: 0;
+    transition-timing-function: cubic-bezier(0.32, 0, 0.67, 0);
+  }
 }
 
-.detailspane-header {
+.detailspane__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 0;
 }
 
-.detailspane-title {
+.detailspane__title {
   margin: 0;
   font-size: 1.625rem;
   font-weight: 500;
   box-shadow: 0 0.15rem 0 $text;
 }
 
-.detailsbox-headerwrap {
+.detailsbox__headerwrap {
   margin: 0;
 }
 
-.detailsbox-header {
+.detailsbox__header {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -131,7 +142,7 @@ button {
   }
 }
 
-.detailsbox-content {
+.detailsbox__content {
   padding: 0.75rem 0.75rem 1.125rem 0.75rem;
   //background: $active;
   p {

@@ -92,7 +92,7 @@
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-26f7f2652560e7588fd2343bedd3cb88",
+            "id": "component-ButtonComponent-c5bb13e7500385077541d2a4bf2fc4ad",
             "file": "src/app/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -124,7 +124,7 @@
                 {
                     "name": "size",
                     "defaultValue": "'medium'",
-                    "description": "<p>What background color to use</p>\n",
+                    "description": "<p>How large should the button be?</p>\n",
                     "line": 26,
                     "type": "\"small\" | \"medium\" | \"large\""
                 }
@@ -138,7 +138,15 @@
                     "type": "EventEmitter"
                 }
             ],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "backgroundColor",
+                    "type": "string",
+                    "optional": true,
+                    "description": "<p>What background color to use</p>\n",
+                    "line": 20
+                }
+            ],
             "methodsClass": [
                 {
                     "name": "ngOnInit",
@@ -154,7 +162,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss']\n})\nexport class ButtonComponent implements OnInit {\n\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * What background color to use\n   */\n  //@Input()\n  //backgroundColor?: string;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\n\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\n  }\n\n  constructor() { }\n\n  ngOnInit() {\n  }\n\n}\n",
+            "sourceCode": "import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss'],\n})\nexport class ButtonComponent implements OnInit {\n\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * What background color to use\n   */\n  //@Input()\n  backgroundColor?: string;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\n\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\n  }\n\n  constructor() { }\n\n  ngOnInit() {\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -187,7 +195,7 @@
         },
         {
             "name": "DetailspaneComponent",
-            "id": "component-DetailspaneComponent-45605e76292e437a01d55256ae7f99dc",
+            "id": "component-DetailspaneComponent-87efe43fdc6e59037fe2374385cdb284",
             "file": "src/app/detailspane/detailspane.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -205,14 +213,58 @@
             "viewProviders": [],
             "inputsClass": [
                 {
+                    "name": "closed",
+                    "defaultValue": "false",
+                    "description": "<p>Is this the detailspane closed?</p>\n",
+                    "line": 31
+                },
+                {
                     "name": "title",
                     "defaultValue": "'DetailsPane'",
-                    "description": "<p>Button contents</p>\n",
-                    "line": 17
+                    "description": "<p>DetailsPane Title</p>\n",
+                    "line": 18
                 }
             ],
-            "outputsClass": [],
-            "propertiesClass": [],
+            "outputsClass": [
+                {
+                    "name": "onClick",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "description": "<p>Optional click handler</p>\n",
+                    "line": 37,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "id",
+                    "defaultValue": "1",
+                    "type": "number",
+                    "optional": false,
+                    "description": "<p>DetailsPane ID</p>\n",
+                    "line": 25,
+                    "jsdoctags": [
+                        {
+                            "pos": 487,
+                            "end": 496,
+                            "flags": 0,
+                            "kind": 288,
+                            "atToken": {
+                                "pos": 487,
+                                "end": 488,
+                                "flags": 0,
+                                "kind": 57
+                            },
+                            "tagName": {
+                                "pos": 488,
+                                "end": 496,
+                                "flags": 0,
+                                "escapedText": "required"
+                            },
+                            "comment": ""
+                        }
+                    ]
+                }
+            ],
             "methodsClass": [
                 {
                     "name": "ngOnInit",
@@ -220,7 +272,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 21
+                    "line": 47
                 }
             ],
             "hostBindings": [],
@@ -228,11 +280,11 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit, Input } from '@angular/core';\n\n@Component({\n  selector: 'sw-detailspane',\n  templateUrl: './detailspane.component.html',\n  styleUrls: ['./detailspane.component.scss']\n})\n\nexport class DetailspaneComponent implements OnInit {\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  title = 'DetailsPane';\n\n  constructor() { }\n\n  ngOnInit(){\n\n  }\n\n}\n",
+            "sourceCode": "import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';\nimport { animate, state, style, transition, trigger } from '@angular/animations';\n\n@Component({\n  selector: 'sw-detailspane',\n  templateUrl: './detailspane.component.html',\n  styleUrls: ['./detailspane.component.scss'],\n})\n\nexport class DetailspaneComponent implements OnInit {\n\n  /**\n   * DetailsPane Title\n   *\n   * @required\n   */\n  @Input()\n  title = 'DetailsPane';\n\n  /**\n   * DetailsPane ID\n   *\n   * @required\n   */\n  id = 1;\n\n  /**\n   * Is this the detailspane closed?\n   */\n  @Input()\n  closed = false;\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.closed ? 'detailspane detailspane--closed' : 'detailspane';\n\n    return [mode];\n  }\n\n  constructor() { }\n\n  ngOnInit(){\n\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "$primary: #006EAD;\n$grey: #E3E7E9;\n$grey-light: #F7F8F9;\n$active: #2284BB;\n$text: #485258;\n\n\n.icon {\n  width: 1em;\n  height: 1em;\n  fill: $text;\n   path {\n    fill: inherit;\n   }\n\n}\n\nbutton {\n  margin: 0;\n  color: $text;\n}\n\n.sr-only {\n\tborder: 0 !important;\n\tclip: rect(1px, 1px, 1px, 1px) !important; /* 1 */\n\t-webkit-clip-path: inset(50%) !important;\n\t\tclip-path: inset(50%) !important;  /* 2 */\n\theight: 1px !important;\n\tmargin: -1px !important;\n\toverflow: hidden !important;\n\tpadding: 0 !important;\n\tposition: absolute !important;\n\twidth: 1px !important;\n\twhite-space: nowrap !important;            /* 3 */\n}\n\n.content {\n  display: flex;\n  margin: 2rem auto;\n  min-height: 100vh;\n}\n\n.chevron {\n\n  &__group {\n    transform: translateY(0);\n    transition: transform 0.1s linear;\n  }\n\n  &__box--left,\n  &__box--right {\n    transform: rotate(0) translateY(0);\n    transition: transform 0.1s linear;\n  }\n\n  &__box--left {\n    transform-origin: 1px 1px;\n  }\n\n  &__box--right {\n    transform-origin: 7px 1px;\n  }\n}\n\n.detailspane {\n  display: flex;\n  flex-direction: column;\n  margin: 0 auto;\n  width: 25rem;\n  font-size: 0.8125rem;\n}\n\n.detailspane-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 1.5rem 0;\n}\n\n.detailspane-title {\n  margin: 0;\n  font-size: 1.625rem;\n  font-weight: 500;\n  box-shadow: 0 0.15rem 0 $text;\n}\n\n.detailsbox-headerwrap {\n  margin: 0;\n}\n\n.detailsbox-header {\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  justify-content: space-between;\n  padding: 0.375rem 0.75rem;\n  border-radius: 3px;\n  border: 1px solid $grey;\n  background-color: $grey;\n  font-weight: 600;\n  margin-bottom: 0.375rem;\n\n  & > * {\n    pointer-events: none;\n  }\n\n  .icon {\n    margin-left: 1em;\n  }\n\n  &:focus, &:active, &:focus {\n    outline: none;\n    border-color: $active;\n  }\n\n  &[aria-expanded=\"true\"] {\n      .chevron {\n\n        &__group {\n          transform: translateY(3px);\n        }\n\n        &__box--left {\n          transform: rotate(-90deg) translateY(0);\n        }\n        &__box--right {\n          transform: rotate(90deg) translateY(0);\n        }\n\n      }\n  }\n}\n\n.detailsbox-content {\n  padding: 0.75rem 0.75rem 1.125rem 0.75rem;\n  //background: $active;\n  p {\n    margin: 0;\n  }\n}\n",
+                    "data": "$primary: #006EAD;\n$grey: #E3E7E9;\n$grey-light: #F7F8F9;\n$active: #2284BB;\n$text: #485258;\n\n\n.icon {\n  width: 1em;\n  height: 1em;\n  fill: $text;\n   path {\n    fill: inherit;\n   }\n\n}\n\nbutton {\n  margin: 0;\n  //this is just es an example for accessibility violations\n  color: lighten($text,50%);\n}\n\n.sr-only {\n\tborder: 0 !important;\n\tclip: rect(1px, 1px, 1px, 1px) !important; /* 1 */\n\t-webkit-clip-path: inset(50%) !important;\n\t\tclip-path: inset(50%) !important;  /* 2 */\n\theight: 1px !important;\n\tmargin: -1px !important;\n\toverflow: hidden !important;\n\tpadding: 0 !important;\n\tposition: absolute !important;\n\twidth: 1px !important;\n\twhite-space: nowrap !important;            /* 3 */\n}\n\n.content {\n  display: flex;\n  margin: 2rem auto;\n  min-height: 100vh;\n}\n\n.chevron {\n\n  &__group {\n    transform: translateY(0);\n    transition: transform 0.1s linear;\n  }\n\n  &__box--left,\n  &__box--right {\n    transform: rotate(0) translateY(0);\n    transition: transform 0.1s linear;\n  }\n\n  &__box--left {\n    transform-origin: 1px 1px;\n  }\n\n  &__box--right {\n    transform-origin: 7px 1px;\n  }\n}\n\n.detailspane {\n  display: flex;\n  flex-direction: column;\n  margin: 0 auto;\n  width: 25rem;\n  font-size: 0.8125rem;\n  opacity: 1;\n  transform: translateX(0%);\n  transition-duration: 0.5s;\n  transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1);\n\n  &--closed {\n    transform: translateX(100%);\n    opacity: 0;\n    transition-timing-function: cubic-bezier(0.32, 0, 0.67, 0);\n  }\n}\n\n.detailspane__header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 1.5rem 0;\n}\n\n.detailspane__title {\n  margin: 0;\n  font-size: 1.625rem;\n  font-weight: 500;\n  box-shadow: 0 0.15rem 0 $text;\n}\n\n.detailsbox__headerwrap {\n  margin: 0;\n}\n\n.detailsbox__header {\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  justify-content: space-between;\n  padding: 0.375rem 0.75rem;\n  border-radius: 3px;\n  border: 1px solid $grey;\n  background-color: $grey;\n  font-weight: 600;\n  margin-bottom: 0.375rem;\n\n  & > * {\n    pointer-events: none;\n  }\n\n  .icon {\n    margin-left: 1em;\n  }\n\n  &:focus, &:active, &:focus {\n    outline: none;\n    border-color: $active;\n  }\n\n  &[aria-expanded=\"true\"] {\n      .chevron {\n\n        &__group {\n          transform: translateY(3px);\n        }\n\n        &__box--left {\n          transform: rotate(-90deg) translateY(0);\n        }\n        &__box--right {\n          transform: rotate(90deg) translateY(0);\n        }\n\n      }\n  }\n}\n\n.detailsbox__content {\n  padding: 0.75rem 0.75rem 1.125rem 0.75rem;\n  //background: $active;\n  p {\n    margin: 0;\n  }\n}\n",
                     "styleUrl": "./detailspane.component.scss"
                 }
             ],
@@ -241,12 +293,23 @@
                 "name": "constructor",
                 "description": "",
                 "args": [],
-                "line": 17
+                "line": 43
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"content\">\n<aside class=\"detailspane\" role=\"complementary\" aria-labelledby=\"detailspane-1\" data-allow-multiple>\n  <div class=\"detailspane-header\">\n    <h2 id=\"detailspane-1\" class=\"detailspane-title\">{{title}}</h2>\n    <button class=\"detailspane-close\" aria-label=\"Close\" aria-describedby=\"descriptionClose\">close</button>\n    <span id=\"descriptionClose\" class=\"sr-only\">Closing this detail pane will return you back to the main page</span>\n  </div>\n  <div class=\"detailspane-content\">\n    <h3 class=\"detailsbox-headerwrap\">\n    <button id=\"detailsbox-1id\"\n        class=\"detailsbox-header\"\n        aria-expanded=\"true\"\n        aria-controls=\"detailsbox-content-1\">\n        <span class=\"detailsbox-title\"> I am a the title </span>\n        <span class=\"detailsbox-icon\" aria-hidden=\"true\" focusable=\"false\">\n            <svg class=\"icon\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" xml:space=\"preserve\" viewBox=\"0 0 8 5\">\n              <g class=\"chevron__group\">\n                <path d=\"M1.30834787,0.121426937 L4.87569247,3.68780701 C5.04143584,3.8541036 5.04143584,4.11557261 4.87569247,4.2818692 L4.2807853,4.87693487 C4.20364253,4.95546204 4.09599241,5 3.98333171,5 C3.87067101,5 3.76302089,4.95546204 3.68587812,4.87693487 L0.122730401,1.30754434 C-0.0409101338,1.14044787 -0.0409101338,0.880578628 0.122730401,0.713482155 L0.718686793,0.119419971 C0.79596299,0.0427616956 0.902628913,-0.000376468522 1.01396541,2.47569236e-06 C1.1253019,0.000381419907 1.2316441,0.0442445771 1.30834787,0.121426937 L1.30834787,0.121426937 Z\" class=\"chevron__box chevron__box--left\" />\n                <path d=\"M3.12493976,3.68899585 L6.68683713,0.123119938 C6.76404711,0.0445502117 6.8717041,3.56458529e-15 6.98436032,0 C7.09701655,-3.56458529e-15 7.20467353,0.0445502117 7.28188351,0.123119938 L7.87588228,0.717098143 C8.04137257,0.883371226 8.04137257,1.14480327 7.87588228,1.31107635 L4.31398491,4.87695226 C4.23695994,4.95546834 4.1294742,5 4.01698553,5 C3.90449685,5 3.79701111,4.95546834 3.71998614,4.87695226 L3.12493976,4.28197072 C2.95998402,4.11649361 2.95814736,3.85659624 3.12074929,3.68899585 L3.12493976,3.68899585 Z\" class=\"chevron__box chevron__box--right\" />\n            </g>\n          </svg>\n        </span>\n  </button>\n  </h3>\n  <div id=\"detailsbox-content-1\"\n     class=\"detailsbox-content\"\n     role=\"region\"\n     aria-labelledby=\"detailsbox-1id\"\n     >\n      <div>\n        <p>any content</p>\n\t      <!-- any content -->\n      </div>\n  </div>\n    <!-- tab 2 -->\n    <h3 class=\"detailsbox-headerwrap\">\n    <button id=\"detailsbox-2id\"\n        class=\"detailsbox-header\"\n        aria-expanded=\"true\"\n        aria-controls=\"detailsbox-content-2\">\n        <span class=\"detailsbox-title\"> I am a the title 2</span>\n        <span class=\"detailsbox-icon\" aria-hidden=\"true\" focusable=\"false\">\n            <svg class=\"icon\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" xml:space=\"preserve\" viewBox=\"0 0 8 5\">\n              <g class=\"chevron__group\">\n                <path d=\"M1.30834787,0.121426937 L4.87569247,3.68780701 C5.04143584,3.8541036 5.04143584,4.11557261 4.87569247,4.2818692 L4.2807853,4.87693487 C4.20364253,4.95546204 4.09599241,5 3.98333171,5 C3.87067101,5 3.76302089,4.95546204 3.68587812,4.87693487 L0.122730401,1.30754434 C-0.0409101338,1.14044787 -0.0409101338,0.880578628 0.122730401,0.713482155 L0.718686793,0.119419971 C0.79596299,0.0427616956 0.902628913,-0.000376468522 1.01396541,2.47569236e-06 C1.1253019,0.000381419907 1.2316441,0.0442445771 1.30834787,0.121426937 L1.30834787,0.121426937 Z\" class=\"chevron__box chevron__box--left\" />\n                <path d=\"M3.12493976,3.68899585 L6.68683713,0.123119938 C6.76404711,0.0445502117 6.8717041,3.56458529e-15 6.98436032,0 C7.09701655,-3.56458529e-15 7.20467353,0.0445502117 7.28188351,0.123119938 L7.87588228,0.717098143 C8.04137257,0.883371226 8.04137257,1.14480327 7.87588228,1.31107635 L4.31398491,4.87695226 C4.23695994,4.95546834 4.1294742,5 4.01698553,5 C3.90449685,5 3.79701111,4.95546834 3.71998614,4.87695226 L3.12493976,4.28197072 C2.95998402,4.11649361 2.95814736,3.85659624 3.12074929,3.68899585 L3.12493976,3.68899585 Z\" class=\"chevron__box chevron__box--right\" />\n            </g>\n          </svg>\n        </span>\n  </button>\n  </h3>\n  <div id=\"detailsbox-content-2\"\n     class=\"detailsbox-content\"\n     role=\"region\"\n     aria-labelledby=\"detailsbox-2id\"\n     >\n      <div>\n        <p>any content goes here</p>\n\t      <!-- any content goes here -->\n      </div>\n  </div>\n    <!-- // tab 2 -->\n  </div>\n</aside>\n</div>\n"
+            "accessors": {
+                "classes": {
+                    "name": "classes",
+                    "getSignature": {
+                        "name": "classes",
+                        "type": "[]",
+                        "returnType": "string[]",
+                        "line": 39
+                    }
+                }
+            },
+            "templateData": "<div class=\"content\">\n<aside [ngClass]=\"classes\" role=\"complementary\" [attr.aria-labelledby]=\"'detailspane' + id\" data-allow-multiple>\n  <div class=\"detailspane__header\">\n    <h2 id=\"{{ 'detailspane' + id }}\" class=\"detailspane__title\">{{title}}</h2>\n    <button class=\"detailspane__close\" aria-label=\"Close\" aria-describedby=\"detailspane__close--description\">close</button>\n    <span id=\"detailspane__close--description\" class=\"sr-only\">Closing this detail pane will return you back to the main content</span>\n  </div>\n  <div class=\"detailspane__content\">\n    <h3 class=\"detailsbox__headerwrap\">\n    <button id=\"detailsbox-1id\"\n        class=\"detailsbox__header\"\n        aria-expanded=\"true\"\n        aria-controls=\"detailsbox__content-1\">\n        <span class=\"detailsbox-title\"> I am a the title </span>\n        <span class=\"detailsbox-icon\" aria-hidden=\"true\" focusable=\"false\">\n            <svg class=\"icon\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" xml:space=\"preserve\" viewBox=\"0 0 8 5\">\n              <g class=\"chevron__group\">\n                <path d=\"M1.30834787,0.121426937 L4.87569247,3.68780701 C5.04143584,3.8541036 5.04143584,4.11557261 4.87569247,4.2818692 L4.2807853,4.87693487 C4.20364253,4.95546204 4.09599241,5 3.98333171,5 C3.87067101,5 3.76302089,4.95546204 3.68587812,4.87693487 L0.122730401,1.30754434 C-0.0409101338,1.14044787 -0.0409101338,0.880578628 0.122730401,0.713482155 L0.718686793,0.119419971 C0.79596299,0.0427616956 0.902628913,-0.000376468522 1.01396541,2.47569236e-06 C1.1253019,0.000381419907 1.2316441,0.0442445771 1.30834787,0.121426937 L1.30834787,0.121426937 Z\" class=\"chevron__box chevron__box--left\" />\n                <path d=\"M3.12493976,3.68899585 L6.68683713,0.123119938 C6.76404711,0.0445502117 6.8717041,3.56458529e-15 6.98436032,0 C7.09701655,-3.56458529e-15 7.20467353,0.0445502117 7.28188351,0.123119938 L7.87588228,0.717098143 C8.04137257,0.883371226 8.04137257,1.14480327 7.87588228,1.31107635 L4.31398491,4.87695226 C4.23695994,4.95546834 4.1294742,5 4.01698553,5 C3.90449685,5 3.79701111,4.95546834 3.71998614,4.87695226 L3.12493976,4.28197072 C2.95998402,4.11649361 2.95814736,3.85659624 3.12074929,3.68899585 L3.12493976,3.68899585 Z\" class=\"chevron__box chevron__box--right\" />\n            </g>\n          </svg>\n        </span>\n  </button>\n  </h3>\n  <div id=\"detailsbox__content-1\"\n     class=\"detailsbox__content\"\n     role=\"region\"\n     aria-labelledby=\"detailsbox-1id\"\n     >\n      <div>\n        <p>any content</p>\n\t      <!-- any content -->\n      </div>\n  </div>\n    <!-- tab 2 -->\n    <h3 class=\"detailsbox__headerwrap\">\n    <button id=\"detailsbox-2id\"\n        class=\"detailsbox__header\"\n        aria-expanded=\"true\"\n        aria-controls=\"detailsbox__content-2\">\n        <span class=\"detailsbox-title\"> I am a the title 2</span>\n        <span class=\"detailsbox-icon\" aria-hidden=\"true\" focusable=\"false\">\n            <svg class=\"icon\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" xml:space=\"preserve\" viewBox=\"0 0 8 5\">\n              <g class=\"chevron__group\">\n                <path d=\"M1.30834787,0.121426937 L4.87569247,3.68780701 C5.04143584,3.8541036 5.04143584,4.11557261 4.87569247,4.2818692 L4.2807853,4.87693487 C4.20364253,4.95546204 4.09599241,5 3.98333171,5 C3.87067101,5 3.76302089,4.95546204 3.68587812,4.87693487 L0.122730401,1.30754434 C-0.0409101338,1.14044787 -0.0409101338,0.880578628 0.122730401,0.713482155 L0.718686793,0.119419971 C0.79596299,0.0427616956 0.902628913,-0.000376468522 1.01396541,2.47569236e-06 C1.1253019,0.000381419907 1.2316441,0.0442445771 1.30834787,0.121426937 L1.30834787,0.121426937 Z\" class=\"chevron__box chevron__box--left\" />\n                <path d=\"M3.12493976,3.68899585 L6.68683713,0.123119938 C6.76404711,0.0445502117 6.8717041,3.56458529e-15 6.98436032,0 C7.09701655,-3.56458529e-15 7.20467353,0.0445502117 7.28188351,0.123119938 L7.87588228,0.717098143 C8.04137257,0.883371226 8.04137257,1.14480327 7.87588228,1.31107635 L4.31398491,4.87695226 C4.23695994,4.95546834 4.1294742,5 4.01698553,5 C3.90449685,5 3.79701111,4.95546834 3.71998614,4.87695226 L3.12493976,4.28197072 C2.95998402,4.11649361 2.95814736,3.85659624 3.12074929,3.68899585 L3.12493976,3.68899585 Z\" class=\"chevron__box chevron__box--right\" />\n            </g>\n          </svg>\n        </span>\n  </button>\n  </h3>\n  <div id=\"detailsbox__content-2\"\n     class=\"detailsbox__content\"\n     role=\"region\"\n     aria-labelledby=\"detailsbox-2id\"\n     >\n      <div>\n        <p>any content goes here</p>\n\t      <!-- any content goes here -->\n      </div>\n  </div>\n    <!-- // tab 2 -->\n  </div>\n</aside>\n</div>\n"
         }
     ],
     "modules": [
@@ -522,7 +585,7 @@
         ]
     },
     "coverage": {
-        "count": 5,
+        "count": 8,
         "status": "low",
         "files": [
             {
@@ -548,8 +611,8 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "ButtonComponent",
-                "coveragePercent": 57,
-                "coverageCount": "4/7",
+                "coveragePercent": 62,
+                "coverageCount": "5/8",
                 "status": "good"
             },
             {
@@ -597,9 +660,9 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "DetailspaneComponent",
-                "coveragePercent": 25,
-                "coverageCount": "1/4",
-                "status": "low"
+                "coveragePercent": 57,
+                "coverageCount": "4/7",
+                "status": "good"
             },
             {
                 "filePath": "src/app/detailspane/detailspane.stories.ts",
