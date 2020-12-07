@@ -459,17 +459,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/button/button.stories.ts",
-                "type": "Story<ButtonComponent>",
-                "defaultValue": "(args: ButtonComponent) => ({\n  component: ButtonComponent,\n  props: args,\n})"
+                "file": "src/app/detailspane/detailspane.stories.ts",
+                "type": "Story<DetailspaneComponent>",
+                "defaultValue": "(args: DetailspaneComponent) => ({\n  component: DetailspaneComponent,\n  //template: `<sw-detailspane></sw-detailspane>`,\n  props: args,\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/detailspane/detailspane.stories.ts",
-                "type": "Story<DetailspaneComponent>",
-                "defaultValue": "(args: DetailspaneComponent) => ({\n  component: DetailspaneComponent,\n  //template: `<sw-detailspane></sw-detailspane>`,\n  props: args,\n})"
+                "file": "src/app/button/button.stories.ts",
+                "type": "Story<ButtonComponent>",
+                "defaultValue": "(args: ButtonComponent) => ({\n  component: ButtonComponent,\n  props: args,\n})"
             }
         ],
         "functions": [],

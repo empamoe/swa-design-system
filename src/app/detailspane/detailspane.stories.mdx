@@ -28,6 +28,82 @@ import DetailsPaneMeasurements from '../../stories/assets/detailspane/detailspan
     display: block;
   }
 
+  body {
+    counter-reset : h2;
+	}
+
+  h2 {
+    counter-reset : h3;
+	}
+
+  h3 {
+    counter-reset : h4;
+	}
+
+  h4 {
+    counter-reset : h5;
+	}
+
+  h5 {
+    counter-reset : h6;
+	}
+
+  h2:before {
+    content : counter(h2,decimal) "  ";
+    counter-increment : h2;
+	}
+
+  h3:before {
+    content : counter(h2,decimal) "." counter(h3,decimal) "  ";
+    counter-increment : h3;
+	}
+
+  h4:before {
+    content : counter(h2,decimal) "." counter(h3,decimal) "." counter(h4,decimal) "  ";
+    counter-increment : h4;
+	}
+
+  h5:before {
+    content : counter(h2,decimal) "." counter(h3,decimal) "." counter(h4,decimal) "." counter(h5,decimal) "  ";
+    counter-increment : h5;
+	}
+
+  h6:before {
+    content : counter(h2,decimal) "." counter(h3,decimal) "." counter(h4,decimal) "." counter(h5,decimal) "." counter(h6,decimal) "  ";
+    counter-increment : h6;
+	}
+
+  .tabs {
+    counter-reset : l1;
+    padding: 0;
+	}
+
+  .tabs {
+    list-style-type: none;
+  }
+
+  .tabs li:before {
+    display: inline-block;
+    margin-right: 0.5rem;
+  }
+
+  .tabs > li > ol {
+    list-style-type: none;
+    counter-reset : l2;
+	}
+
+  .tabs > li:before {
+    display: inline-block;
+    content : counter(l1,decimal) "  ";
+    counter-increment : l1;
+  }
+
+  .tabs > li > ol > li:before {
+    display: inline-block;
+    content : counter(l1,decimal) "." counter(l2,decimal) "  ";
+    counter-increment : l2;
+	}
+
 `}</style>
 
 <Meta title='Components/DetailsPane/Documentation'
@@ -38,52 +114,69 @@ import DetailsPaneMeasurements from '../../stories/assets/detailspane/detailspan
 ## Overview
 
 <ol class="tabs">
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#principles">Principles</a></li>
-<li><a href="#when-to-use">When to use</a></li>
-<li><a href="#anatomy">Anatomy</a></li>
-<li><a href="#placement">Placement</a></li>
-<li><a href="#measurements">Measurements</a></li>
-<li><a href="#elevation">Elevation</a></li>
-<li><a href="#multiselection">Multiselection</a></li>
-<li><a href="#variations">Variations</a></li>
-<li><a href="#behavior-and-interaction">Behavior and Interaction</a></li>
-<li><a href="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
-
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#introduction">Introduction</a>
+    <ol>
+      <li><a href="#principles">Principles</a></li>
+      <li><a href="#when-to-use">When to use</a></li>
+    </ol>
+  </li>
+  <li><a href="#appearance">Appearance</a>
+    <ol>
+      <li><a href="#anatomy">Anatomy</a></li>
+      <li><a href="#placement">Placement</a></li>
+      <li><a href="#measurements">Measurements</a></li>
+      <li><a href="#elevation">Elevation</a></li>
+    </ol>
+  </li>
+  <li><a href="#variations">Variations</a>
+      <ol>
+        <li><a href="#multiselection">Multiselection</a></li>
+      </ol>
+  </li>
+  <li><a href="#behavior-and-interaction">Behavior and Interaction</a></li>
+  <li><a href="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
+  <li><a href="#edge-cases">Edge Cases</a></li>
+  <li><a href="#accessibility">Accessibility</a></li>
 </ol>
 
 
 
 ## Introduction
 
-The details pane is a supplement to the main content area that is used to provide users a way to view more detailed information and interact with an entity while keeping the main view in the content area.
+The details pane is a supplement to the main content area that is used to provide users a way to view more detailed information and interact with an entity while keeping the main view in the content area. A Details Pane should show the “most relevant” content of a single view page.
 The details pane appears when clicking on one entity in an overview of many entities (e.g. on a device in a table).
 
 <img src={DetailsPaneIntro} alt="DetailsPaneIntro" />
 
-## Principles
+### Principles
 
 **Preview**
+
 The details pane summarizes the most important content of the selected element.
 
 **No editing**
+
 Editing of data (e.g. changing device name) is not allowed inside a details pane. In contrast the single view usually shows all data in editing mode.
 
 **Use actions sparingly**
+
 Some actions concerning the entity (e.g. deactivating a strategy) may be offered inside the details pane. Since it only contains the most important content, actions should also be chosen considerately.
 
 
-## When to Use
+### When to Use
 Generally a details pane is always available on pages where the content only consists of a listing of many entities.
 
-**Use if**
+** Use if **
 - you want to show additional information for entities in the main content area.
 
-**Do not use if**
+** Do not use if **
 - the respective entity is not in the main content area.
 - to show additional information pertaining to the  main content area as a whole.
 
-## Anatomy
+## Appearance
+
+### Anatomy
 
 <img src={DetailsPaneAnatomy} alt="DetailsPaneAnatomy" />
 
@@ -92,7 +185,7 @@ Generally a details pane is always available on pages where the content only con
 3. Details Box Header
 4. Details Box Content
 
-## Placement
+### Placement
 
 <img src={DetailsPanePlacement} alt="DetailsPanePlacement" />
 
@@ -101,27 +194,27 @@ The top of the title always aligns to the top of the content.
 
 <img src={DetailsPanePlacement2} alt="DetailsPanePlacement2" />
 
-### Mobile (xs)
+#### Mobile (xs)
 There is no sidebar in tables. You can only access a preview on the map.
 
 <img src={DetailsPaneMobile} alt="DetailsPaneMobile" />
 
-## Measurements
+### Measurements
 
 The width is calculated through the viewport size. Details panes span the height of the content area.
 
 <img src={DetailsPaneMeasurements} alt="DetailsPaneMeasurements" />
 
-## Elevation
+### Elevation
 The details pane is placed on the background layer.
 
 ## Variations
 
+### Multiselection
+
 A user may select multiple items in the content area by using Ctrl + click / cmd + click. These are marked active and show up in the details pane as a list as shown here. Another way to select multiple items is when a user clicks an aggregated icon on the map. Users can then batch interact with these multiple items (e.g. creating a group; deactivating all of them)
 
 When multiple devices have been selected there should be actions available that are often needed by users.
-
-## Multiselection
 
 <img src={DetailsPaneMultiselection} alt="DetailsPaneMultiselection" />
 
@@ -148,3 +241,153 @@ They cannot be horizontally scrolled.
 | Action | Shortcut |
 |------- | -------- |
 | Show/Hide details pane (and Set Focus to details pane) | d |
+
+## Edge Cases
+
+### Overflow
+** Title **
+
+If the title is too long for displaying it in one line, it is abbreviated by ‘...’ . By hovering over the abbreviated title the full title is shown in a tool-tip.
+
+** Label **
+
+Labels should not be so long that they cannot be shown in one line. If it does happen, they are abbreviated by ‘...’ . By hovering over the abbreviated title the full title is shown in a tool-tip.
+If the information that would be hidden by the abbreviation is crucial for understanding the given information, the text flows in the next line with an ident of 6px.
+
+** Text **
+
+Text just flows in the next line.
+
+** Table **
+
+Remember that only the most important content should be displayed in details panes. Therefore, table columns should be picked considerately.
+Consider abbreviating the content of table columns by ‘...’ .
+
+
+## Accessibility
+
+Upon appearance the focus moves to the first available element (heading) in the details pane.
+
+
+### Details Pane
+
+The Details Pane has to provide the following attributes:
+
+- aria-labelledby (refers to the id of the heading)
+- role="complementary"
+
+The Heading of the Details Pane has to have an id.
+
+The hide Button has to provide the following attributes:
+
+- aria-label="Close"
+
+To provide a better context for screen readers it should be considered to implement the following label:
+aria-describedby (refers to the id of the description)
+
+The description element will not be visible but screen readers can read it. So instead of ‘display none’ use a workaround with a clip property.
+
+** See the following outline example for the Details Pane **
+
+```
+  <aside class="detailspane" role="complementary" aria-labelledby="detailspane-1" data-allow-multiple>
+   	<div class="detailspane__header">
+      	  <h2 id="detailspane-1" class="detailspane__title">Details Pane</h2>
+          <button type="button" class="detailspane__close" aria-label="Close" aria-describedby="detailspane__close--description">close</button>
+          <span id="detailspane__close--description" class="sr-only">Closing this detail pane will return you back to the main content</span>
+    </div>
+    <div class="detailspane__content">
+  	   <!-- multiple details boxes -->
+    </div>
+  </aside>
+```
+
+### Details Box
+
+The Details Box within the Details Pane consists of a heading and the appropriated content area.
+
+A Details Heading has to provide the following attributes:
+
+- id
+- aria-expanded takes value true or false (default: true)
+- aria-controls (name of the details box - use its id)
+- aria-describedby (id of the description field for this element)
+
+The Details Box has to provide the following attributes:
+
+- id
+- role="region"
+- aria-labelledby (equal to the id of the heading)
+
+** See the following example for an open Details Box **
+
+```
+<h3 class="detailsbox__headerwrap">
+  <button type="button" id="detailsbox-1id"
+      class="detailsbox__header"
+      aria-expanded="true"
+      aria-controls="detailsbox__content-1"
+      aria-describedby="detailsbox__header-1--description" >
+      <span class="detailsbox-title"> I am a the title </span>
+      <span class="detailsbox-icon" aria-hidden="true" focusable="false">
+          <svg class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" xml:space="preserve" viewBox="0 0 8 5">
+            <g class="chevron__group">
+              <path d="M1.30834787,0.121426937 L4.87569247,3.68780701 C5.04143584,3.8541036 5.04143584,4.11557261 4.87569247,4.2818692 L4.2807853,4.87693487 C4.20364253,4.95546204 4.09599241,5 3.98333171,5 C3.87067101,5 3.76302089,4.95546204 3.68587812,4.87693487 L0.122730401,1.30754434 C-0.0409101338,1.14044787 -0.0409101338,0.880578628 0.122730401,0.713482155 L0.718686793,0.119419971 C0.79596299,0.0427616956 0.902628913,-0.000376468522 1.01396541,2.47569236e-06 C1.1253019,0.000381419907 1.2316441,0.0442445771 1.30834787,0.121426937 L1.30834787,0.121426937 Z" class="chevron__box chevron__box--left" />
+              <path d="M3.12493976,3.68899585 L6.68683713,0.123119938 C6.76404711,0.0445502117 6.8717041,3.56458529e-15 6.98436032,0 C7.09701655,-3.56458529e-15 7.20467353,0.0445502117 7.28188351,0.123119938 L7.87588228,0.717098143 C8.04137257,0.883371226 8.04137257,1.14480327 7.87588228,1.31107635 L4.31398491,4.87695226 C4.23695994,4.95546834 4.1294742,5 4.01698553,5 C3.90449685,5 3.79701111,4.95546834 3.71998614,4.87695226 L3.12493976,4.28197072 C2.95998402,4.11649361 2.95814736,3.85659624 3.12074929,3.68899585 L3.12493976,3.68899585 Z" class="chevron__box chevron__box--right" />
+          </g>
+        </svg>
+      </span>
+  </button>
+  <span id="detailsbox__header-1--description" class="sr-only">Click this button to show or hide the section: I am a the title </span>
+</h3>
+<div id="detailsbox__content-1"
+   class="detailsbox__content"
+   role="region"
+   aria-labelledby="detailsbox-1id"
+   >
+    <div>
+      <p>any content</p>
+      <!-- any content -->
+    </div>
+</div>
+```
+
+** See the following example for a closed Details Box **
+```
+<h3 class="detailsbox__headerwrap">
+  <button type="button" id="detailsbox-1id"
+      class="detailsbox__header"
+      aria-expanded="false"
+      aria-controls="detailsbox__content-1"
+      aria-describedby="detailsbox__header-1--description" >
+      <span class="detailsbox-title"> I am a the title</span>
+      <span class="detailsbox-icon" aria-hidden="true" focusable="false">
+          <svg class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" xml:space="preserve" viewBox="0 0 8 5">
+            <g class="chevron__group">
+              <path d="M1.30834787,0.121426937 L4.87569247,3.68780701 C5.04143584,3.8541036 5.04143584,4.11557261 4.87569247,4.2818692 L4.2807853,4.87693487 C4.20364253,4.95546204 4.09599241,5 3.98333171,5 C3.87067101,5 3.76302089,4.95546204 3.68587812,4.87693487 L0.122730401,1.30754434 C-0.0409101338,1.14044787 -0.0409101338,0.880578628 0.122730401,0.713482155 L0.718686793,0.119419971 C0.79596299,0.0427616956 0.902628913,-0.000376468522 1.01396541,2.47569236e-06 C1.1253019,0.000381419907 1.2316441,0.0442445771 1.30834787,0.121426937 L1.30834787,0.121426937 Z" class="chevron__box chevron__box--left" />
+              <path d="M3.12493976,3.68899585 L6.68683713,0.123119938 C6.76404711,0.0445502117 6.8717041,3.56458529e-15 6.98436032,0 C7.09701655,-3.56458529e-15 7.20467353,0.0445502117 7.28188351,0.123119938 L7.87588228,0.717098143 C8.04137257,0.883371226 8.04137257,1.14480327 7.87588228,1.31107635 L4.31398491,4.87695226 C4.23695994,4.95546834 4.1294742,5 4.01698553,5 C3.90449685,5 3.79701111,4.95546834 3.71998614,4.87695226 L3.12493976,4.28197072 C2.95998402,4.11649361 2.95814736,3.85659624 3.12074929,3.68899585 L3.12493976,3.68899585 Z" class="chevron__box chevron__box--right" />
+          </g>
+        </svg>
+      </span>
+  </button>
+  <span id="detailsbox__header-1--description" class="sr-only">Click this button to show or hide the section: I am a the title </span>
+</h3>
+<div id="detailsbox__content-1"
+   class="detailsbox__content"
+   role="region"
+   aria-labelledby="detailsbox-1id"
+   hidden
+   >
+    <div>
+      <p>any content goes here</p>
+      <!-- any content goes here -->
+    </div>
+</div>
+
+```
+
+### Accessibility considerations
+This component has been validated to meet the WCAG 2.1 AA accessibility guidelines, however changes made by the content owner can affect accessibility compliance. Be sure to review and follow the guidance in this section when updating or adding new content to this component.
+
+After the details pane opens, initial focus should be set on the first focusable element in the details pane.
+After a details pane closes, focus should retain the user’s point of regard and return to the element that invoked the details pane.
